@@ -8,13 +8,19 @@ window.onload = () => {
  * @return {number}
  */
  var countOdds = function(low, high) {
+    // Find the number of odd numbers between low and high by subtracting high from low to get the total numbers between,
+    // subtracting one to account for one of the numbers, and dividing by two to split odds and evens.
     const oddNumbersBetween = (((high - low) -1)/2);
+    // Round oddNumbersBetween up to nearest whole number
     const roundedOddNumbersBetween = Math.ceil(oddNumbersBetween);
+    //Return roundedOddNumbersBetween if both high and low are even (determined using modulus operator)
     if (low % 2 === 0 && high % 2 === 0) {
         return roundedOddNumbersBetween;
-    } else if (low%2 === 1 || high%2 === 1) {
+    // Return roundedOddNumbersBetween plus one if one of the numbers is even and the other is odd (determined using modulus operator)
+    } else if (low % 2 === 1 || high % 2 === 1) {
         return (roundedOddNumbersBetween + 1);
     }
+    // Return roundedOddNumbersBetween plus two if both numbers are odd (determined using modulus operator)
     else return (roundedOddNumbersBetween + 2);
 };
 
@@ -98,4 +104,21 @@ var average = function(salary) {
         return a - b;
       });
     return sumArray[sumArray.length - 1];
+};
+
+/** 1480. Running Sum of 1d Array
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+ var runningSum = function(nums) {
+    // Declare new array for returning answer
+    let sumArray = [];
+    // Declare arraySum to add numbers to
+    let arraySum = 0;
+    // For each number in nums, add it to arraySum and push arraySum into sumArray
+    nums.forEach(number => {
+        arraySum += number;
+        sumArray.push(arraySum);
+    })
+    return sumArray;
 };
