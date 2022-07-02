@@ -71,13 +71,18 @@ var average = function(salary) {
  * @return {number}
  */
  var subtractProductAndSum = function(n) {
+    // Change inputted number to string and store it as number variable
     const number = n.toString();
+    // Create an array of individual digits in number
     const numbersArray = number.split('');
+    // Declare digitProduct and digitSum variables for storing number product and sum and subtracting later on
     let digitProduct = 1;
     let digitSum = 0;
+    // For each number in numbersArray, multiply it with digitProduct
     numbersArray.forEach(number => {
         digitProduct *= number
     });
+    // For each number in numbersArray, add it to digitSum
     numbersArray.forEach(number => {
         digitSum += parseInt(number);
     });
