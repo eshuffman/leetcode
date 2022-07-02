@@ -33,16 +33,20 @@ const displayResult = (result) => {
 * @return {number}
 */
 var average = function(salary) {
+    // Sort salary array from least to greatest
     salary.sort(function(a, b) {
         return a - b;
       });
+      // Remove first and last numbers from array
    salary.splice(0, 1);
    salary.splice((salary.length -1), 1);
-
+   // Declare totalSalary variable for calculating average
    let totalSalary = 0
+   // For each number in salary array, add number to running totalSalary variable
    salary.forEach(element => {
     totalSalary += element
    });
+   // Return the totalSalary divided by the number of salaries in the array (the average!)
    return (totalSalary / salary.length);
 };
 
@@ -121,4 +125,29 @@ var average = function(salary) {
         sumArray.push(arraySum);
     })
     return sumArray;
+};
+
+/** 1672. Richest Customer Wealth
+
+ * @param {number[][]} accounts
+ * @return {number}
+ */
+ var maximumWealth = function(accounts) {
+    // Declare highestAccountTotal variable for returning as answer
+    let highestAccountTotal = 0;
+    // For each account, do the following...
+    accounts.forEach(account => {
+        // Declare accountTotal variable for returning as sum of individual accounts
+        let accountTotal = 0;
+        // For each individual account, add all the numbers inside and store in accountTotal variable
+        account.forEach(number => {
+            accountTotal += number;
+        });
+        // If a given accountTotal is more than the current highestAccountTotal, it becomes new highestAccountTotal
+        // otherwise highestAccountTotal stays the same
+        if (accountTotal > highestAccountTotal) {
+            highestAccountTotal = accountTotal;
+        }
+    })
+    return highestAccountTotal;
 };
