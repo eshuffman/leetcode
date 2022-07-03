@@ -156,3 +156,31 @@ var average = function(salary) {
     })
     return highestAccountTotal;
 };
+
+/** 412. Fizz Buzz
+ * @param {number} n
+ * @return {string[]}
+ */
+ var fizzBuzz = function(n) {
+    // Declare empty array for returning
+    let fizzBuzzArray = [];
+    // Perform the following loop until n is reached, using i as the integer to push into the array
+    for (var i=1; i<=n; i++) {
+        // if i is divisible by 3 but NOT by 5, push in fizz
+        if (i % 3 === 0 && i % 5 != 0) {
+            fizzBuzzArray.push("Fizz");
+        }
+        // if i is divisible by 5 but NOT by 3, push in buzz
+        else if (i % 5 === 0 && i % 3 != 0) {
+            fizzBuzzArray.push("Buzz");
+        }
+        // if i is divisible by 3 AND by 5, push in fizzbuzz
+        else if (i % 5 === 0 && i % 3 === 0) {
+            fizzBuzzArray.push("FizzBuzz");
+        }
+        // if none of the conditions above are met, push in integer i as a string
+        else fizzBuzzArray.push(`${i}`);
+      }
+      
+    return fizzBuzzArray;
+};
